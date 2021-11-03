@@ -5,7 +5,7 @@ pipeline {
 	   steps {
                 echo 'compiling..'
 		git 'https://github.com/sahubibh/samplejavaapp.git'
-		bat label: 'C:\Program Files\apache-maven-3.8.3\bin', script: 'mvn compile'
+		bat 'bat label: \'C:\\Program Files\\apache-maven-3.8.3\\bin\', script: \'mvn compile\''
 		 
            }
         }
