@@ -4,14 +4,14 @@ pipeline {
         stage('compile') {
 	   steps {
                 echo 'compiling..'
-		git url: 'https://github.com/lerndevops/DevOpsClassCodes'
-		sh script: '/opt/apache-maven-3.8.3/bin/mvn compile'
+		git 'https://github.com/sahubibh/samplejavaapp.git'
+		bat 'C:\\Program Files\\apache-maven-3.8.3\\bin\\mvn compile'
            }
         }
         stage('codereview-pmd') {
 	   steps {
                 echo 'codereview..'
-		sh script: '/opt/apache-maven-3.8.3/bin/mvn -P metrics pmd:pmd'
+		bat 'C:\\Program Files\\apache-maven-3.8.3\\bin\\mvn -P metrics pmd:pmd'
            }
 	   post {
                success {
@@ -22,7 +22,7 @@ pipeline {
         stage('unit-test') {
 	   steps {
                 echo 'unittest..'
-	        sh script: '/opt/apache-maven-3.8.3/bin/mvn test'
+	        bat 'C:\\Program Files\\apache-maven-3.8.3\\bin\\mvn test'
                  }
 	   post {
                success {
@@ -33,7 +33,7 @@ pipeline {
         stage('codecoverate') {
 	   steps {
                 echo 'codecoverage..'
-		sh script: '/opt/apache-maven-3.8.3/bin/mvn cobertura:cobertura -Dcobertura.report.format=xml'
+		bat 'C:\\Program Files\\apache-maven-3.8.3\\bin\\mvn cobertura:cobertura -Dcobertura.report.format=xml'
            }
 	   post {
                success {
@@ -44,7 +44,7 @@ pipeline {
         stage('package') {
 	   steps {
                 echo 'package......'
-		sh script: '/opt/apache-maven-3.8.3/bin/mvn package'	
+		bat 'C:\\Program Files\\apache-maven-3.8.3\\bin\\mvn package'	
            }		
         }
     }
