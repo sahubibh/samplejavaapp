@@ -12,7 +12,7 @@ pipeline {
         stage('codereview-pmd') {
 	   steps {
                 echo 'codereview..'
-		bat 'C:\Program Files\apache-maven-3.8.3\bin\mvn -P metrics pmd:pmd'
+		bat 'bat label: \'C:\\Program Files\\apache-maven-3.8.3\\bin\', script: \'mvn -P metrics pmd:pmd\''
            }
 	   post {
                success {
@@ -23,7 +23,8 @@ pipeline {
         stage('unit-test') {
 	   steps {
                 echo 'unittest..'
-	        bat 'C:\Program Files\apache-maven-3.8.3\bin\mvn test'
+	        
+		bat 'bat label: \'C:\\Program Files\\apache-maven-3.8.3\\bin\', script: \'mvn test\''
                  }
 	   post {
                success {
@@ -45,7 +46,8 @@ pipeline {
         stage('package') {
 	   steps {
                 echo 'package......'
-		bat 'C:\Program Files\apache-maven-3.8.3\bin\mvn package'	
+		
+		bat 'bat label: \'C:\\Program Files\\apache-maven-3.8.3\\bin\', script: \'mvn package\''
            }		
         }
     }
