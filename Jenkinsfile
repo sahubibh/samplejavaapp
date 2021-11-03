@@ -5,7 +5,8 @@ pipeline {
 	   steps {
                 echo 'compiling..'
 		git 'https://github.com/sahubibh/samplejavaapp.git'
-		bat 'C:\Program Files\apache-maven-3.8.3\bin\mvn compile'
+		bat label: 'C:\Program Files\apache-maven-3.8.3\bin', script: 'mvn compile'
+		 
            }
         }
         stage('codereview-pmd') {
