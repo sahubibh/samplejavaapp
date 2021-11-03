@@ -35,8 +35,11 @@ pipeline {
         stage('codecoverate') {
 	   steps {
                 echo 'codecoverage..'
-		bat 'C:\Program Files\apache-maven-3.8.3\bin\mvn cobertura:cobertura -Dcobertura.report.format=xml'
+		
+		bat 'bat label: \'C:\\Program Files\\apache-maven-3.8.3\\bin\', script: \'mvn cobertura:cobertura -Dcobertura.report.format=xml\''
+		   
            }
+		
 	   post {
                success {
 	           cobertura autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'target/site/cobertura/coverage.xml', conditionalCoverageTargets: '70, 0, 0', failUnhealthy: false, failUnstable: false, lineCoverageTargets: '80, 0, 0', maxNumberOfBuilds: 0, methodCoverageTargets: '80, 0, 0', onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false                  
