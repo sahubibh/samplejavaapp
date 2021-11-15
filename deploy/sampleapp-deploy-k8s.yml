@@ -31,6 +31,6 @@ spec:
   selector:
     app: samplejavaapp
   ports:
-  - prot: 8080
-    targetport: 8888
+  - port: 8888
+    targetport: 8080
     
