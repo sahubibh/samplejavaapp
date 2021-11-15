@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: samplejavaapp
-        image: lerndevops/samplejavaapp
+        image: sahubibh/samplejavaapp
         ports:
         - containerPort: 8080
 
